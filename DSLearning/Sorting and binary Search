@@ -1,0 +1,9 @@
+---------------------------- Binary Search -----------------------------
+
+- Applied on sorted array .
+
+- time Complexity : O(log n)
+
+ Space complexity : O(1)
+
+- Used to search an element in array .

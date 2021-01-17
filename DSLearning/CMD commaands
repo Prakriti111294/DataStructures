@@ -1,0 +1,76 @@
+--------------------------------------------- 1. systeminfo ----------------------------
+
+- To get all the system info .
+
+--------------------------------------------- 2. ver -----------------------------------------
+
+- To get the version of Windows OS
+
+--------------------------------------------- 3. dir -----------------------------------------
+
+- To check current directory contents
+
+--------------------------------------------- 4. C: ------------------------------------------
+
+- to get into the c drive
+
+----------------------------------------------5. mkdir folderName------------------------------------------------
+
+- to create new folder in the current directory
+
+----------------------------------------------6. cd .. ------------------------------------------------------
+
+- to return into the parent folder
+
+----------------------------------------------7. type nul > fileName.txt -----------------------------------
+
+- to create a new file in current directory
+
+----------------------------------------------8. del folderName/fileName -----------------------------------------------
+
+- to delete the contents of folder(folder is made empty but not deleted )
+
+-it deletes the file completely 
+
+
+----------------------------------------------9. rmdir folderNAme --------------------------------------------
+
+- to delete the folder completely
+
+----------------------------------------------10. notepad/start fileName -----------------------------------------------
+
+- to write in the file
+
+----------------------------------------------11. copy file1 file2 ---------------------------------------------
+
+- to copy contents of file1 to file2 also
+
+
+----------------------------------------------12. type fileName -----------------------------------------------
+
+- to see the file content(notepad content) in the prompt itself
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

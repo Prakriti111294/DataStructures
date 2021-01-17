@@ -1,0 +1,80 @@
+//-----------------------------------  br tag ----------------------------------------
+
+- It is used to print statements on next line
+
+//------------------------------ attribute : target="_blank" ---------------------------
+
+- It is used to open link in new tab.
+
+//----------------------------- <a href="--" target="_blank">Click Here </a> ----------------------------
+
+------------------------------- Types of stylesheets: ------------------------------------------------
+
+1. Internal - inside html file itself (inside style tag) ---- in the head tag
+			<style>
+            	.link{
+                	color :blueviolet;
+            	}
+        	</style>
+
+2. External - inside different css file
+				<link rel='stylesheet' type='text/css' href='style.css'>
+				
+3. Inline - with the element itself
+			<p class ='intro' style="color:blueviolet;">
+			
+
+------------------------------------ Common properties ---------------------------------------------
+
+	1.content
+	2.padding
+	3.border
+	4.Margin
+	
+----------------------------------  Border width sequence( Top Right Bottom Left ) ------------------------------------------
+
+
+--------------------------------------- div ----------------------------------------------------
+
+- It is used to  create space for contents (box model )
+- Systematic
+
+
+---------------------------------------- float -----------------------------------------------
+
+it is used to float the content to the right or left in the box(div space)
+
+
+----------------------------- <img src="--" id ="image">------------------------------------------------
+
+
+------------------ css property :- overflow=auto ---------------------------------------------------------
+
+-If the content does not fits , then scrollbar is added
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+			
+

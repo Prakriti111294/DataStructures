@@ -1,0 +1,210 @@
+----------------------------------- Primitives v/s object in case of mutation -----------------------------------------------------------
+
+- In case of copying primitives ,  a copy is created ,  thus no change is made in original variable
+
+-Eg for primitives :
+
+	var a= 20 ;
+	var b= a ;
+	a= 26 ;
+	console.log ('a='+a);
+	console.log ('b='+b);
+	
+	O/P : a=26  //new value
+		  b=20  // unchanged value
+		  
+
+- In case of copying objects , the reference address is copied , not the object , thus any change made is directly on the  reference address i.e. all objects
+
+- Eg :
+	var poi = {
+    name : 'Poi' ,
+    age : 23
+		};
+
+	var poi2=poi;
+	poi2.age=10 ;
+	console.log ('poi.age=' + poi.age) ;
+	
+	O/P : poi.age=10    //Changed value
+	
+	
+- When primitive is passed as function parameter , in case of mutation , its value remains unchanged
+- When object is passed as function parameter , in case of mutation , its property value gets changed
+- Eg :
+
+	var c=10;
+	var poi3 = {
+    name : 'Poi3' ,
+    age : 23
+		};
+
+
+	var newFun = function ( c , d){
+    c=18 ;
+    d.name = 'Poi_new' ;
+	};
+
+	newFun(c, poi3);
+	console.log ('Poi3.name=' +poi3.name) ;
+	console.log ('c='+c);
+	
+	O/P : Poi.name = Poi_new  // Object property value changed
+		  c=10               //  Primitive value remains unchanged
+	
+----------------------------------------------------------- Callback function --------------------------------------------------------------
+
+-  Function allows you to pass 2 parameters , 1st is element list , 2nd is the callback function(function which calls itself)
+- Functions accepting functions as input
+
+- Eg :
+	var arr=[1,2,3,4,5] ;
+	var fun = function(arr , callbackFun){
+    var newArr =[] ;
+    for (var i=0 ; i< arr.length ; i++){
+        newArr.push(callbackFun(arr[i])) ;
+    }
+    return newArr ;
+	} ;
+
+	function callbackFun(el){
+    return 2000-el ;
+	}
+
+	console.log (fun(arr , callbackFun)) ;
+	
+	O/P : [1999, 1998, 1997, 1996, 1995]
+	
+	
+----------------------------- Functions returning functions ---------------------------
+
+var jobQuestion=function(job){
+    if (job==='Designer'){
+        return function(name){
+            console.log ('Hello ' + name + ' what design did you create recently ? ');
+        }
+    }
+        
+    else if (job==='Teacher'){
+        return function(name){
+            console.log('Hi ' +name + ' which subject do you teach?');
+        }
+    }
+    else {
+        console.log ('No job left')
+    }
+    }
+
+
+var designerQues = jobQuestion('Designer') ;
+designerQues('Jose') ;
+
+jobQuestion('Teacher')('Jane') ;
+
+
+O/P :
+		Hello Jose what design did you create recently ?
+		Hi Jane which subject do you teach?
+	
+	
+
+-------------------------------------------- Closures ------------------------------------------------------------
+
+- It means that the inner function always have the access to the variables or parameters of its outer function , even after the outer function is returned
+
+- Eg :
+	var jobQu = function (job){
+    return function(name){   //Inner function
+        console.log ('Hi '+ job +' '  +name + ' which subject do you teach?') ;
+    }
+	}
+	jobQu('Teacher')('Josy') ;
+	
+	O/P : Hi Teacher Josy which subject do you teach?
+	
+	
+
+
+---------------------------------------------------- Call , Bind , Apply --------------------------------------------------
+
+var myName = {
+    firstName : 'Prakriti' ,
+    lastName : 'Gupta'
+}
+
+
+function fun(hometown , state){
+    console.log (this.firstName + ' ' + this.lastName + ' lives in ' +hometown +' ' + 'from '+ state) ;
+}
+
+//Call is used to borrow any function for any particular object   --- function borrowing
+// syntax : functionNamme.call (obj , parameters of function)
+fun.call(myName , 'Jhansi' , 'U.P.') ;
+
+
+//Apply is same as call , just the parameters are given in form of a single array --- function borrowing
+//fun.apply(myName , ['Jalandar' , ' Punjab ']) ;
+
+
+//Bind is used to copy the function for an object and save it. ---------- function copying 
+var bindFun = fun.bind(myName , 'Hyderabad' , 'Telangana') ;
+console.log (bindFun) ;  // it is the copy of function which will be printed
+bindFun();               // it will execute bindFun for specific object
+
+
+// Bind allows us to create copy of function with the preset value of arguments
+var myNewName = {
+    firstName : 'Chunnu' ,
+    lastName : 'Gupta' ,
+    fun1 : function (hometown , state){
+        console.log (this.firstName + ' ' + this.lastName + ' is from ' + hometown +' in ' + state) ;
+    }
+}
+
+
+var Smitha = {
+    firstName : 'Smitha'
+}
+
+
+var newBindFun = myNewName.fun1.bind(Smitha , 'Hyderbad') ;  //VAlue preset of hometown
+newBindFun('Telangana') ;
+	
+	
+	
+
+	
+	
+-------------------------- Immediately Invoked Function Expression (IIFE) ---------------------------------
+-Advantages of IIFE :
+	1. Automatically executed by JS once in the code
+	2. Does not interfere in the global context variables
+	3. The scope of all var is local
+	
+- Eg :
+(function(){
+  console.log ('Yuhoo I am  executed automatically by JS.... I am IIFE !!')  
+})();
+
+
+(function(name){
+    console.log ('IIFE with an argument.. correct - ' +name);
+})('JAsi') ;
+
+O/P :Yuhoo I am  executed automatically by JS.... I am IIFE !!
+	 IIFE with an argument.. correct - Jasi
+	 
+	 
+---------------------------------------------------------------------------------------------------------------
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

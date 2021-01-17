@@ -1,0 +1,270 @@
+------------------------------------------------------- Let , var , const (vvvv imp )-------------------------------------------------------------
+
+- 	let == block scope
+	var == function scope
+	const == block scope like let but immutable
+	
+	
+- Eg :
+		1 . Let :
+		
+		// let example
+		{ let variable = 3 } // Created in local scope (the current block scope)
+		console.log(variable) // ReferenceError: variable is not defined
+		
+		
+		2. Var :
+		
+		// var example
+		{ var variable = 37 } // Created in global scope (the current function scope)
+		console.log(variable) // 37
+		
+		
+		3. Const :
+		
+		// const example
+		const object = {hello: "world"} // Created in local scope (the current block scope)
+		object.hello = "earth" // Object properties are mutable, even though the object is a const
+		console.log(object) // Object { hello: "earth" }
+		object = {different: "object"} // TypeError: invalid assignment to const `object'
+		
+		
+-------------------------------------------------------- Execution context ------------------------------------------------------------
+
+- Global execution context ( window object ) -- 
+	
+	<script>
+		---------window---------------
+	</script>
+
+- Local execution context (function context ) ---
+	
+	<script>
+		------------ window -------------
+		function fun(){------- }
+	</script>
+	
+	
+--------------------------------------------- JS functions are firstclass functions -----------------------------------------
+
+- It means functions can also be used as parameters to other functions .
+
+- We can assign a function to a variable
+- We can return function from functions
+
+- A function that returns a function is called a Higher-Order Function.
+
+
+------------------------------------ ES 6 Strings (Template literals)------------------------------------------------------------------
+
+ - var fNamme ='Prakriti' , lName = 'Gupta' ;
+	console.log(`My name is ${fNamme} ${lName}`);
+
+
+- every variable or function enclosed in ${} in console.log 
+
+- .repeat(count) is used to print any string in console n no of times 
+
+
+//---------------------------- String literals in ES6 -----------------------------
+
+var fNamme ='Prakriti' , lName = 'Gupta' ;
+console.log(`My name is ${fNamme} ${lName}`);
+
+
+//----------------------- Arrow functions ------------------------------------------
+- Syntax :
+		(args) => {} ;
+		
+		
+//When one or no arg and only one statement , then no brackets and no return is needed
+let arr=[1 , 2 , 3];
+let fun = arr.map(curr => 100-curr) ;
+console.log(fun);
+
+
+
+// 2 args and only one stmt , then no brackkets needed for stmt
+let fun2 = arr.map((curr , index) => `This is ${index} element`) ;
+console.log(fun2);
+
+
+//When multiple stmts then brackets and return both needed
+let fun3 = arr.map((curr , index) => {
+    let arg = index+1 ;
+   return `This is ${index} element :${arg}` ;
+}) ;
+console.log(fun3);
+
+
+//------------------------------------------ Arrow function with lexical this keyword ------------------------ 
+// Arrow function does not have its own this keyword
+//es5
+let fun5 = {
+    color : 'Red' ,
+    prop : function(){
+        //var self = this ;
+        return this.color ;
+    }
+}
+
+//Output in case of es5 is red(i.e. this is pointing to current obj)
+console.log(fun5.prop()) ;
+
+
+//es6
+let fun6 = {
+    color : 'Red' , 
+    prop : () => {
+        return this.color ;
+    }
+}
+
+//Output in case of es6 is undefined(i.e. this is pointing to window obj)
+console.log(fun6.prop()) ;
+
+
+//---------------------------------- Destucturing------------------------
+
+
+
+
+
+//-------------------------------- Arrays in ES6 ----------------------------------------
+
+
+//To convert any nodeList into an array , we can use 'Array.from()' instead of tricking with 'slice'.
+
+const boxes =document.querySelectorAll('.box') ;
+
+let boxes6 = Array.from(boxes).map(curr => curr.style.backgroundColor='blue');
+
+
+
+
+//To find index of an element which satisfies particular condition or to get the element itself
+
+const arr1 = [ 1, 2 , 3 , 19 , 4 , 5] ;
+
+//Find index of element in arr which is >=18
+console.log(arr1.findIndex(curr => curr>=18)) ;
+//Find element in arr which is >=18
+console.log(arr1.find(curr => curr>=18)) ;
+
+
+
+//ForOf loop instead of forEach or map
+//Better as it allows break and continue stmts also
+let boxesArr = Array.from(boxes) ;
+for (curr of boxesArr){
+    if (curr.className.includes('blue')){
+        curr.textContent='I am  not changed' ;
+    }
+    else
+        curr.textContent='I am changed to blue' ;
+}
+
+
+//-------------------------------------- Spread operator for arrays , nodeLists --------------
+//It is used to break the array into its respective components and use them
+
+const arr2 = [ 1, 2 , 3 , 4] ;
+
+let addFourNos = (a,b,c,d) => a+b+c+d ; 
+
+//ES5
+var sum2 = addFourNos.apply(null , arr2) ;
+console.log(sum2) ;
+
+
+//ES6
+// ... is the spread operator in array
+//It is used to break the array into its respective components and use them
+const sum3 = addFourNos(...arr2) ;
+console.log(sum3) ;
+
+
+// ... can be used for various cases , eg : joining 2 arrays
+const nodeList_boxes = document.querySelectorAll('.box') ;
+
+const joinedArray = [...arr2 , ...nodeList_boxes] ;
+console.log(joinedArray) ;
+
+//Learn the syntax
+//Link : https://www.youtube.com/watch?v=h3-5HpE2Dvs
+//Reduce is used to get the sum , product or other op on all elements of array
+let sum = (total , value , index , array)=>{
+    return total+value ;
+}
+
+let a1 = [1 , 2 , 3 , 4] ;
+let r1 =  a1.reduce(sum , 0) ;
+
+
+console.log (r1) ;
+//Output : 10 
+
+
+
+//----------------------------------------- arrayName.filter() method --------------------------
+
+//it is used to filter the elements of array acc to some specific conditions
+
+//Eg
+
+const ar =[4 , 5 , 8 , 10] ;
+
+let filtered = ar.filter(function(value ){
+    return value>5 ;
+}) ;
+
+console.log (filtered) ;
+//Output : 8 , 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

@@ -1,0 +1,15 @@
+-Kind of a bst
+
+-rules for rb tree :
+
+Every node has a color, either red or black.
+The root of the tree is always black.
+There are no two adjacent red nodes (A red node cannot have a red parent or red child).
+Every path from the root to a NULL node has the same number of black nodes.
+
+
+-complexity- O(log n)
+
+-used in C++ stl library collections, like the map, multimap, and multiset
+-Used in treeMap and treeSet in java
+-Used in Linux Kernel

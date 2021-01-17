@@ -1,0 +1,128 @@
+-------ArrayLIST is best for retrieval-------------------------------------------------------------
+
+//To convert List into Array
+		Employee[] emp_Array = employeeList.toArray(new Employee[employeeList.size()]);
+		
+//To match the values of objects instead of the reference adresses, we use .contains method and override .equals and hashcode method
+
+
+---------------------------------Single linked list------------------------------------------------
+
+//For insertion and deletion in the begining, it always has fixed no of steps, thus time complexity is O(1)
+
+There are predefined functions of the linked list we can use them to handle the data.  
+
+
+-------------------------------HashMap---------------------------------------------------------------
+-Youtube link : https://www.youtube.com/watch?v=c3RVW3KGIIE
+
+-Map is the key value pair
+
+-Hashing : Any length string represented as a short fixed length value .A shorter length helps in indexing and faster searches
+
+- In Java , hashcode() method returns hash value of an object
+
+- Hash values are given from 0 to 15 and the collection is called hashTable.They are calculated as : hashcode mod 16 : remainder is the hash value for that obj
+
+- Each index in hashTable contains the obj and nextNode (represented as a linkedList of maps ).
+
+- Obj means : int hash , key , value
+
+-If the linkedList is getting extended long i.e. more than 8 nodes in java , then in java 8 the structure is automatically internally converted into balanced bst as its complexity(log n) is very less
+
+-It is not thread safe i.e. 2 read operations can be done concurrently
+
+-Iteration is not guaranteed insertion order
+
+- Null is allowed in HAshMap (key or value) 
+
+- Null key is given index 0 in hashMap
+
+
+------------------------------ HashTable-rarely used -------------------------------------------------------------------
+
+- All methods are thread safe .(put , get , remove )
+
+- Null not allowed
+
+- Hash values are given from 0 to 15 and the collection is called hashTable.They are calculated as : hashcode mod 16 : remainder is the hash value for that obj
+
+- Each index in hashTable contains the obj and nextNode (represented as a linkedList).
+
+- Obj means : int hash , value
+
+
+
+------------------------------------ Hashing collision resolution techniques ----------------------------
+
+- Hashing collision means two or more node pointing to the same address i.e. having same hash value(h) . eg :17 mod 16=1 , 33 mod 16= 1 , thus there is collision(both having hash value 1)
+
+- Resolution techniques :
+
+  1. Open addressing - Linear Probe : place the the collided object on the next available address in i.e. h+1 , h+2...
+  					   Quadratic Probe : place the the collided object on the next available address in i.e. h+1 , h+4 , h+9....
+  					   Double hashing (Pseudorandom) :place the the collided object on the next available address in i.e. any random number (ah + c )
+  					   
+  
+  2. LinkedList / Chaining (Mostly used ) - Maintain a linkedList for every hashvalue in hash table
+  
+----------------------------------LinkedHashMap----------------------------------------------------
+
+- Iteration guranteed in insertion order (internal use if doubly linkedList)
+- Used for storing sequence order also
+
+--------------------------------------TreeMap---------------------------------------------------------
+
+- Iteration is in the sorted order
+- Internal implementation of red black tree
+- NavigableMap interface provides methods to find closest match to the key (floorEntry()...)
+
+----------------------------------WeakHashMap-------------------------------------------------------------
+
+- Elements in weakHashMap can be reclaimed by garbage collector , if  there are no strong reference to the obj .
+- It is used for recreating hashMap of cache values
+
+-----------------------------------------Java.util.concurrent.ConcurrentHashMap--------------------------------
+
+- Supports full concurrency during retrieval .
+
+- even in write operation , whole table is not locked, only some segments are locked .
+
+- Null keys not allowed .
+
+----------------------------------------------- Equals should always be overridden along with hashcode method in java------------
+
+
+------------------------------------ JVM -------------------------------------------
+ 
+ -Main function to load and execute class file  
+
+
+https://www.youtube.com/watch?v=-urNrIAQnNo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,118 @@
+----------------------------------- Trie / Prefix tree / Digital tree -------------------------------
+
+- Tree ds used to store collection of strings
+
+-  Operation , search , delete .
+
+- Each node represents one char of string .  
+
+-  Use of HAshMap , Boolean
+
+- Time complexity is the O(len of string) , whereas of time complexity if BST for string search is O(len * log n)
+
+- Space complexity is more
+
+- used for autocomplete , text search.
+
+- Radix tree (Kind of a Trie ) is used in IP routing
+
+- Coding - isertion searching removal  :
+	https://www.sanfoundry.com/java-program-implement-hash-trie/ ---- linkedList
+	
+	https://java2blog.com/trie-data-structure-in-java/------ better
+	
+	
+	
+--------------------- Suffix tree  ----------------------------------------
+
+- Fab expanation :
+  https://www.youtube.com/watch?v=hLsrPsFHPcQ
+
+- Suffix tree stores string acc to indexes whereas Suffix trie stores acc to char .
+
+- It is more memory efficient than Suffix trie .
+
+- In suffix trie , node contains the suffix strings added with $(end) .
+
+	Eg : 
+	
+- In suffix tree , nodes contain pairs of numbers : ( offset i.e. starting index of suffix string , length i.e Total number of char acc to their respective indexes in the suffix string
+
+- Suffix tree  : worst case complexity : O(n) , leaves contain unique offsets
+
+- Used for searching substrings of any word
+	
+
+-------------------BST --------------------------------------------------
+
+-Nodes to the left are always lesser and nodes to  to the right are always greater than the parent
+-No of children can be 0,1 or 2 (binary)
+-Every level except the last level is complete
+-Nodes in last level are as left as possible
+-height of tree : no of edges in the longest path from leaf to the root
+-height of node : no of edges in the longest path from leaf to the node 
+-depth of node : no of edges in the longest path from root to that node
+
+- Best case complexity : O(1)
+- Avg case : O(height) = O(log n) (balanced bst)
+- Worse case : O(height) = O(n) (unbalanced bst)
+
+--Two types of bst : AVL and red-black
+
+
+------------------AVL Tree------------------------------------------------
+
+- Kind of a bst
+- Strictly balanced
+- bf=height(left subtree)-height(right subtree)
+- bf should be -1,0 or 1
+- if balance factor >1 or <-1  then rotation is needed
+- 4  types of problems - ll , rr , rl , lr
+- problems to solve them: r , l  , rl , lr
+
+
+
+--------------------Red black tree-----------------------------------------
+- Link for insertion : https://www.youtube.com/watch?v=C6NOlAPo5_o&t=958s
+-Kind of a bst
+
+-rules for rb tree :
+Every node has a color, either red or black.
+The root of the tree is always black.
+There are no two adjacent red nodes (A red node cannot have a red parent or red child).
+Every path from the root to a NULL node has the same number of black nodes.
+
+
+-complexity- O(log n)
+
+-used in C++ stl library collections, like the map, multimap, and multiset
+-Used in treeMap and treeSet in java
+-Used in Linux Kernel
+
+--------------------------AVL vs Red-black tree--------------------------------
+
+-Both have time complexity : O(log n) 
+-AVL  is more rigidly balanced thus better than red-black.
+- AVL is better for  searching , rb is better for insertion, deletion
+
+- RB tree is better for insertion or deletion , as less rotations needed in rb tree
+
+--------------------------- Heap ------------------------------------------------
+
+- It is complete(not full) binary tree 
+
+- used for finding the kth largest or  smallest element from an array ( space complexity : n log k)
+
+- It is of 2 types - min heap and max heap 
+
+- Min head : the parent is always having lesser value than the children i.e. root is lowest .
+
+- Nodes are denoted in array as : (acc to level order traversal)
+
+	ith node - i starts from 1
+	
+	-index of ith node left child = 2i
+	-index of ith node right child = 2i + 1 
+	-index of ith node parent = floor (i/2) 
+
+- Max heap : the parent is always having the greater value than children i.e. root is the largest .

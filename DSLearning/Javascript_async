@@ -1,0 +1,101 @@
+//------------------------- setTimeOut(fun , time in milliseconds)------------------------------------
+let second = () => {
+    setTimeout(()=>{
+        console.log ('printed after timeOut') ;
+    }
+        , 3000);
+}
+
+const first = () => {
+    console.log ('Hello') ;
+    second() ;
+    console.log ('first') ;
+}
+
+first() ;
+/*Output : Hello
+         first
+         printed after timeOut */
+
+
+//-------------------------------------------- Promises ---------------------------------------------------
+
+//https://www.youtube.com/watch?v=xGBhmi4wwMI
+//Print roll no array after 2 sec - task 1
+//Print the detail oof specific rollNo after 2sec - task 2
+
+// promise constructor or promise produce
+const pobj1 = new Promise((resolve , reject) => {
+    setTimeout(() => {
+        const rollNoArr = [1, 2 , 3 , 4] ;
+        resolve(rollNoArr) ;
+        reject ('Error while communicating') ;
+    } , 2000) ;
+
+}) ;
+
+const pobj2 = (rollNo) => {
+    return new Promise((resolve , reject) => {
+        setTimeout((rollNo) => {
+            let details ={
+                name : 'Prakriti' ,
+                homeTown : 'Jhansi'
+            } ;
+            //resolve (details) ;
+            reject ('Sorry not working') ;
+        } , 2000 , rollNo) ;
+    }) ;
+} ;
+
+//promise consume
+/* pobj1
+.then((rollNoArr) => {
+    console.log (rollNoArr) ;
+    return pobj2(rollNoArr[2]) ;
+})
+.then((printStmt) => {
+    console.log (printStmt.name) ;
+})
+.catch((error) => {
+    console.log(error) ;
+}) ; */
+
+// ----------------------------------- async await ------------------------------------------------
+
+// async funnction returns a Promise
+//It is used to consume promises
+//try catch used for error handling
+
+async function getRollNoDetails() {
+    try{
+        //Consuming 1st promise
+        let getData = await pobj1 ;
+        console.log (getData) ;
+
+        //Consuming 2nd promise
+        let details = await pobj2(getData[2]) ;
+        console.log (details) ;
+    }
+    catch(error){
+        alert(`Sorrry there is error : ${error}`) ;
+    }
+    
+}
+
+getRollNoDetails() ;
+
+
+// ----------------------------------------- fetch() to get the api -----------------------------------------
+
+fetch('http://crossorigin.me/https://www.metaweather.com/api/location/2487956/')
+.then( result => {
+    console.log (result) ;
+    return result.json() ;
+})
+.then(data => {
+    console.log (data) ;
+})
+.catch( error =>{
+    console.log (error) ;
+})
+

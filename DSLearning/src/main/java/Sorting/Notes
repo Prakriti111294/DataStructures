@@ -1,0 +1,44 @@
+Complexity increasing order (Big-O notation)
+
+O(1) - constant
+O(log n) - logarithm (log base 2)
+O(n) - linear
+O(n log n) - n log-star n 
+O(n^2) - Quadratic
+
+Arrays:
+
+1. Arrays are not dynamic collections, so we have to specify the size at the time of initialization.
+2. We specify size so that JVM can create the memory for that array.
+3. Every element occupies the same amount of space in memory.
+4. IF we are storing objects in Array then it stores the reference of that object so the memory is same for each element in array.
+5. Arrays are good in retrieval of the data if we know the index. 
+
+Retrieve an element from Array:
+
+1. Multiply the size of the element by its index.
+2. get the start address of an array.
+3. Add the start address to the result of multiplication. 
+
+Note: If we don't know the index of the element then we need to iterate the whole array and then we can get the element.
+
+Bubble Sort Algorithms:
+
+1. Worst time complexity is O(n^2)
+2. In bubble sort, each pair of adjacent element is compared and elements are swapped if they are not in order.
+
+Example: 4,2,6,5,9,8
+
+step1 - in first iteration 4 will be compared with 2 and swapping will happen. - 2,4,6,5,9,8
+step2 - now 4 will be compared with 6, no swapping - 2,4,6,5,9,8
+step3 - now 6 will be compared with 5, swapping - 2,4,5,6,9,8
+step4 - now 6 will be compared with 9, no swapping - 2,4,5,6,9,8
+step5 - now 9 will be compared with 8, swapping - 2,4,5,6,8,9
+step6 - now again it starts the same steps.
+
+
+Selection Sort Algorithms:
+
+1. In this sorting technique, collection is divided into two parts. - sorted part[left handed], unsorted part[right handed].
+2. In a set of N elements find out the minimum element and replace it with the first element.
+3. Now repeat this step eith the other N-1 elements. 
